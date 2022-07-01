@@ -4,9 +4,10 @@ import {
   createAuthUserWithEmailandPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
-import FormInput from "../form-input/form-input.component";
+import FormInput from "../../components/form-input/form-input.component";
 
-import "./sign-up-form.styles.scss";
+import "./sign-up-form.styles.jsx";
+import { SignUpContainer } from "./sign-up-form.styles.jsx";
 
 const defaultFormFields = {
   displayName: "",
@@ -55,45 +56,48 @@ const SignUpForm = () => {
     setFormFields({ ...formFields, [name]: value });
   };
   return (
-    <div className="sign-up-container">
+    <SignUpContainer>
       <h2>Don't have an account?</h2>
-      <span>Sign Up With Your Email and Password</span>
+      <span>Sign up with your email and password</span>
       <form onSubmit={handleSubmit}>
         <FormInput
           label="Display Name"
           type="text"
-          name="displayName"
-          onChange={handleChange}
-          value={displayName}
           required
+          onChange={handleChange}
+          name="displayName"
+          value={displayName}
         />
+
         <FormInput
           label="Email"
           type="email"
-          name="email"
-          onChange={handleChange}
-          value={email}
           required
+          onChange={handleChange}
+          name="email"
+          value={email}
         />
+
         <FormInput
           label="Password"
           type="password"
-          name="password"
-          onChange={handleChange}
-          value={password}
           required
+          onChange={handleChange}
+          name="password"
+          value={password}
         />
+
         <FormInput
           label="Confirm Password"
           type="password"
-          name="confirmPassword"
-          onChange={handleChange}
-          value={confirmPassword}
           required
+          onChange={handleChange}
+          name="confirmPassword"
+          value={confirmPassword}
         />
         <Button type="submit">Sign Up</Button>
       </form>
-    </div>
+    </SignUpContainer>
   );
 };
 
